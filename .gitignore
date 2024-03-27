@@ -5,7 +5,7 @@
 /public/storage
 /storage/*.key
 /vendor
-helloworld
+.env
 .env.backup
 .env.production
 Homestead.json
