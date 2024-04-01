@@ -5,7 +5,7 @@ pipeline {
         stage('Fetch from GitHub') { //build steps
             steps {
                 echo 'Fetching for GitHub'
-                git branch: 'TP03' , url: 'https://github.com/POMMOUYLANG/DevOps-TP-Jenkins-.git'
+                git branch: 'tp3' , url: 'https://github.com/rornmakaraaa/DevOps.git'
             }
         }
         stage('Composer install') { 
@@ -42,10 +42,10 @@ pipeline {
     // Telegram Notification
     post {
         success {
-            sh 'curl -X POST -H "Content-Type: application/json" -d \'{\"chat_id\": \"1003515001\", \"text\": \"[SUCCESS] Ukata api build success!\", \"disable_notification\": false}\' https://api.telegram.org/bot6654457291:AAF8XhNC9HPwMIhgk4DTIcYvpe2o0qoX70o/sendMessage'
+            sh 'curl -X POST -H "Content-Type: application/json" -d \'{\"chat_id\": \"926264458\", \"text\": \"[SUCCESS] This project is build success!\", \"disable_notification\": false}\' https://api.telegram.org/bot6993552728:AAFrkhDAN3UiIUnDIvkDazVJpkZMLPnMTF8/sendMessage'
         }
         failure {
-            sh 'curl -X POST -H "Content-Type: application/json" -d \'{\"chat_id\": \"1003515001\", \"text\": \"[FAILED] Ukata api build failed!\", \"disable_notification\": false}\' https://api.telegram.org/bot6654457291:AAF8XhNC9HPwMIhgk4DTIcYvpe2o0qoX70o/sendMessage'
+            sh 'curl -X POST -H "Content-Type: application/json" -d \'{\"chat_id\": \"926264458\", \"text\": \"[FAILED] This project is build failed!\", \"disable_notification\": false}\' https://api.telegram.org/bot6993552728:AAFrkhDAN3UiIUnDIvkDazVJpkZMLPnMTF8/sendMessage'
         }
     }
 }
