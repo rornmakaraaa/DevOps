@@ -1,0 +1,27 @@
+name: Build and Test
+
+on:
+  push:
+    branches: 
+      - main  #Change this to your main branch name if it's different
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  #This action checks out your repository's code
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2  #This action sets up Node.js
+
+      - name: Install dependencies
+        run: npm install  #Replace this with your package manager's command if you're not using npm
+
+      - name: Build
+        run: npm run build  #Replace this with your build script command
+
+      - name: Test
+        run: npm test  #Replace this with your test script command
